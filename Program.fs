@@ -121,6 +121,16 @@ let main argv =
     "support": ["1"]
     }"""  
     
+    let loginAPI = """{
+    "msg": "method",
+    "method": "login",
+    "id": "42",
+    "params": [
+        { "resume": "authToken" }
+      ]
+    }"""
+    
+    sendText (loginAPI.Replace("authToken", res.Data.AuthToken))
     //sleep 1000
 
     printfn "state = %A" client.State
